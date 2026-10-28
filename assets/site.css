@@ -1,0 +1,116 @@
+@font-face { font-family: "Barlow"; font-weight: 400; font-display: swap; src: url("/assets/fonts/Barlow-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Barlow"; font-weight: 500; font-display: swap; src: url("/assets/fonts/Barlow-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Barlow"; font-weight: 600; font-display: swap; src: url("/assets/fonts/Barlow-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Barlow"; font-weight: 700; font-display: swap; src: url("/assets/fonts/Barlow-Bold.ttf") format("truetype"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; font-display: swap; src: url("/assets/fonts/BarlowCondensed-Bold.ttf") format("truetype"); }
+
+:root {
+  --bg: #F3F4F1;
+  --card: #FFFFFF;
+  --border: #DDE0DA;
+  --text: #16191D;
+  --muted: #5A6069;
+  --accent: #C2410C;
+  --accent-dark: #9A3412;
+  --accent-soft: #FFEDD5;
+  --accent-bright: #FB923C;
+  --dark: #16191D;
+  --dark-2: #23282E;
+  --on-dark: #C9CDD3;
+  --soft: #F7F8F5;
+  --radius: 16px;
+  --body: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --display: "Barlow Condensed", "Barlow", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 17px/1.65 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Language: both stay visible until the script picks one. */
+html[data-lang="id"] [data-l="en"],
+html[data-lang="en"] [data-l="id"] { display: none; }
+
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent-dark); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-bright); outline-offset: 2px; border-radius: 6px; }
+
+.wrap { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+/* Top bar */
+.top { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.bar { display: flex; align-items: center; gap: 20px; min-height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font: 700 24px/1 var(--display); letter-spacing: .02em; text-transform: uppercase; margin-right: auto; }
+.brand img { border-radius: 8px; display: block; }
+.bar nav { display: flex; gap: 4px; }
+.bar nav a { padding: 8px 12px; border-radius: 10px; color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; }
+.bar nav a:hover { background: var(--soft); color: var(--text); }
+.bar nav a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
+.lang { display: inline-flex; background: #E7E9E4; border-radius: 999px; padding: 3px; }
+.lang button { border: 0; background: transparent; color: var(--muted); font: 700 13px/1 var(--body); letter-spacing: .04em; padding: 7px 12px; border-radius: 999px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+
+/* Landing */
+.hero { background: var(--dark); color: #fff; }
+.hero-grid { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px; padding-top: 72px; padding-bottom: 72px; }
+.eyebrow { margin: 0 0 12px; color: var(--accent-bright); font-weight: 700; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; }
+.hero h1 { margin: 0 0 16px; font: 700 clamp(48px, 9vw, 84px)/.95 var(--display); letter-spacing: .01em; text-transform: uppercase; }
+.lead { margin: 0 0 24px; max-width: 34em; color: var(--on-dark); font-size: 20px; line-height: 1.55; }
+.badge { display: inline-block; padding: 8px 16px; border: 1px solid rgba(251,146,60,.55); border-radius: 999px; color: #FDBA74; font-weight: 600; font-size: 15px; }
+.hero-icon { border-radius: 38px; box-shadow: 0 24px 60px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.06); display: block; }
+
+.features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; padding-top: 48px; padding-bottom: 8px; }
+.feature { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+.feature h3 { margin: 0 0 6px; font: 700 24px/1.15 var(--display); letter-spacing: .01em; }
+.feature p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
+
+.who { padding-top: 40px; padding-bottom: 56px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.who h2 { margin: 0 0 8px; font: 700 28px/1.15 var(--display); }
+.who p { margin: 0 0 12px; }
+.who .note { color: var(--muted); font-size: 15px; }
+
+/* Documents */
+.doc { max-width: 800px; padding-top: 48px; padding-bottom: 64px; }
+.doc h1 { margin: 0 0 24px; font: 700 clamp(36px, 7vw, 52px)/1.05 var(--display); letter-spacing: .01em; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 40px; }
+.card > h2:first-child { margin-top: 0; }
+.card .meta + h2 { margin-top: 28px; }
+.card h2 { margin: 36px 0 10px; font: 700 26px/1.15 var(--display); letter-spacing: .01em; }
+.card p { margin: 0 0 14px; }
+.card ul { margin: 0 0 16px; padding-left: 22px; }
+.card li { margin: 0 0 8px; padding-left: 2px; }
+.card li::marker { color: var(--accent); }
+.card strong { font-weight: 600; }
+.meta { background: var(--soft); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.meta strong { color: var(--text); }
+
+/* Footer */
+.foot { border-top: 1px solid var(--border); background: var(--card); padding: 28px 0 36px; color: var(--muted); font-size: 15px; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 12px; }
+.foot-links a { color: var(--muted); text-decoration: none; font-weight: 500; }
+.foot-links a:hover { color: var(--accent); text-decoration: underline; }
+.foot p { margin: 0; }
+
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .bar { flex-wrap: wrap; row-gap: 4px; padding-top: 10px; padding-bottom: 10px; }
+  .brand { font-size: 22px; }
+  .bar nav { order: 3; width: 100%; margin-left: -12px; overflow-x: auto; }
+  .hero-grid { grid-template-columns: 1fr; gap: 28px; padding-top: 44px; padding-bottom: 48px; }
+  .hero-icon { order: -1; width: 104px; height: 104px; border-radius: 24px; }
+  .lead { font-size: 18px; }
+  .features { grid-template-columns: 1fr; padding-top: 32px; }
+  .card { padding: 24px 20px; }
+  .doc { padding-top: 32px; padding-bottom: 40px; }
+}
+@media print {
+  .top, .foot, .lang { display: none; }
+  body { background: #fff; }
+  .card { border: 0; padding: 0; }
+}
