@@ -1,4 +1,4 @@
-// Language switch: Indonesian or English, remembered in this browser. Without
+// Language switch: English (default) or Indonesian, remembered in this browser. Without
 // JavaScript both languages stay visible.
 (function () {
   var root = document.documentElement;
@@ -6,7 +6,8 @@
   try {
     saved = localStorage.getItem('lang');
   } catch (e) {}
-  var lang = saved || ((navigator.language || 'en').indexOf('id') === 0 ? 'id' : 'en');
+  // English unless the visitor picked Indonesian before.
+  var lang = saved === 'id' ? 'id' : 'en';
 
   function apply(next) {
     root.setAttribute('data-lang', next);
