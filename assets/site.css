@@ -46,8 +46,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-bright);
 /* Top bar */
 .top { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
 .bar { display: flex; align-items: center; gap: 20px; min-height: 64px; }
-.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font: 700 24px/1 var(--display); letter-spacing: .02em; text-transform: uppercase; margin-right: auto; }
-.brand img { border-radius: 8px; display: block; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font: 700 22px/1 var(--display); letter-spacing: .03em; text-transform: uppercase; margin-right: auto; }
+.brand .mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: var(--accent); color: #FFF7ED; font: 700 17px/1 var(--display); letter-spacing: .02em; }
 .bar nav { display: flex; gap: 4px; }
 .bar nav a { padding: 8px 12px; border-radius: 10px; color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; }
 .bar nav a:hover { background: var(--soft); color: var(--text); }
@@ -70,10 +70,34 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-bright);
 .feature h3 { margin: 0 0 6px; font: 700 24px/1.15 var(--display); letter-spacing: .01em; }
 .feature p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
 
-.who { padding-top: 40px; padding-bottom: 56px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.who { padding-top: 40px; padding-bottom: 32px; }
 .who h2 { margin: 0 0 8px; font: 700 28px/1.15 var(--display); }
-.who p { margin: 0 0 12px; }
+.who p { margin: 0 0 12px; max-width: 44em; }
 .who .note { color: var(--muted); font-size: 15px; }
+
+/* Home */
+.home-hero .wrap { padding-top: 80px; padding-bottom: 80px; }
+.home-hero h1 { font-size: clamp(40px, 7.5vw, 72px); }
+.apps { padding-top: 48px; }
+.apps h2, .contact h2 { margin: 0 0 16px; font: 700 28px/1.15 var(--display); }
+.app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
+.app-card { display: flex; gap: 18px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+.app-card img { border-radius: 16px; flex: none; align-self: flex-start; }
+.app-body h3 { margin: 0 0 4px; font: 700 26px/1.1 var(--display); letter-spacing: .01em; }
+.app-body h3 a { color: var(--text); text-decoration: none; }
+.app-body h3 a:hover { color: var(--accent); }
+.app-body p { margin: 0 0 10px; color: var(--muted); font-size: 16px; line-height: 1.5; }
+.app-meta .badge { border-color: rgba(194,65,12,.4); color: var(--accent); font-size: 13px; padding: 4px 12px; }
+.app-links { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 0 !important; font-size: 15px; font-weight: 600; }
+.contact { padding-top: 40px; padding-bottom: 64px; }
+.contact p { margin: 0; max-width: 44em; }
+.crumbs { margin: 0 0 14px; font-size: 14px; font-weight: 600; letter-spacing: .02em; color: var(--muted); }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); text-decoration: underline; }
+.hero .crumbs, .hero .crumbs a { color: var(--on-dark); }
+.legal-links { display: flex; flex-wrap: wrap; gap: 10px 12px; padding-bottom: 64px; }
+.legal-links a { padding: 10px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; color: var(--text); text-decoration: none; font-weight: 600; font-size: 15px; }
+.legal-links a:hover { border-color: var(--accent); color: var(--accent); }
 
 /* Documents */
 .doc { max-width: 800px; padding-top: 48px; padding-bottom: 64px; }
@@ -100,12 +124,15 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-bright);
 @media (max-width: 720px) {
   body { font-size: 16px; }
   .bar { flex-wrap: wrap; row-gap: 4px; padding-top: 10px; padding-bottom: 10px; }
-  .brand { font-size: 22px; }
-  .bar nav { order: 3; width: 100%; margin-left: -12px; overflow-x: auto; }
+  .brand { font-size: 20px; }
+  .bar nav { order: 3; width: 100%; margin-left: -12px; }
   .hero-grid { grid-template-columns: 1fr; gap: 28px; padding-top: 44px; padding-bottom: 48px; }
   .hero-icon { order: -1; width: 104px; height: 104px; border-radius: 24px; }
   .lead { font-size: 18px; }
-  .features { grid-template-columns: 1fr; padding-top: 32px; }
+  .features, .app-grid { grid-template-columns: 1fr; }
+  .features { padding-top: 32px; }
+  .home-hero .wrap { padding-top: 48px; padding-bottom: 48px; }
+  .app-card { padding: 18px; gap: 14px; }
   .card { padding: 24px 20px; }
   .doc { padding-top: 32px; padding-bottom: 40px; }
 }
